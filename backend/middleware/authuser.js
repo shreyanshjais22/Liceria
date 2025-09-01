@@ -1,4 +1,5 @@
 import jwt from "jsonwebtoken";
+
 const authUser = async (req, res, next) => {
   const { token } = req.cookies;
   if (!token) {
@@ -15,9 +16,9 @@ const authUser = async (req, res, next) => {
     }
   } catch (error) {
     res.clearCookie("token", {
-      httpOnly: "true",
+      httpOnly: true,
       secure: process.env.NODE_ENV === "production",
-      sameSite: process.env.NODE_ENV === "production" ? "none" : "strict",
+      sameSite: "none",
       path: "/",
     });
     return res
