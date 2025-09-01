@@ -25,7 +25,7 @@ app.use(cookieParser());
 
 app.post('/stripe', express.raw({type: 'application/json'}),stripeWebhooks);
 app.use(cors({
-    origin: 'http://localhost:5173',
+    origin: '*',
     credentials: true,}
 ));
 
