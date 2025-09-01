@@ -37,7 +37,7 @@ export default function NewsBox() {
         type="email"
         value={email}
         onChange={(e) => setEmail(e.target.value)}
-        className="flex-1 h-full px-4 bg-transparent text-gray-800 placeholder-gray-400 outline-none text-sm md:text-base"
+        className="flex-1 h-full text-center bg-transparent text-gray-800 placeholder-gray-400 outline-none text-sm md:text-base"
         placeholder="Enter your email address"    
       />
       <button

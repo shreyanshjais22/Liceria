@@ -16,6 +16,7 @@ const Cart = () => {
     axios,
     user,
     setCartItems,
+    setIsLogin
   } = useAppContext();
 
   const [showAddress, setShowAddress] = useState(false);
@@ -55,6 +56,12 @@ const Cart = () => {
 
   const placeOrder = async () => {
     try {
+      if(!user){
+        toast.error("Please Login first !");
+        setIsLogin(false);
+        return 
+        
+      }
       if (!selectedAddress) {
         return toast.error("Please select an Address !");
       }

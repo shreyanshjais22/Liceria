@@ -240,7 +240,7 @@ export default function Navbar() {
                 <button
                   onClick={() => {
                     setOpen(false);
-                    setIsLogin(true);
+                    setIsLogin(false);
                   }}
                   className="w-full py-3 bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white rounded-lg font-medium transition-all duration-300 shadow-md"
                 >

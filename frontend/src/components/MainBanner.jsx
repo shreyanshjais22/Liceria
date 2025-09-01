@@ -50,7 +50,7 @@ function MainBanner() {
         </div>
 
         {/* Trust Indicators */}
-        <div className={`flex items-center gap-4 mt-4 text-black text-xs transition-all duration-1000 delay-900 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}>
+        <div className={`sm:flex items-center gap-4 mt-4 text-black text-xs transition-all duration-1000 delay-900 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}>
           {[
             { color: "bg-green-700", text: "Free Delivery" },
             { color: "bg-blue-700", text: "24/7 Support" },

@@ -20,8 +20,8 @@ const InputField = ({ type, placeholder, name, handleChange, address }) => {
 
 // ✅ Accept `onSuccess` as a prop
 const AddAddress = ({ onSuccess }) => {
-  const { axios, user, navigate } = useAppContext();
-  const [address, setAddress] = useState({
+  const { axios, user, navigate,setIsLogin  } = useAppContext();
+  const [address, setAddress,] = useState({
     firstName: "",
     lastName: "",
     email: "",
@@ -44,32 +44,32 @@ const AddAddress = ({ onSuccess }) => {
   const urlLocater = useLocation();
 
   const onSubmitHandler = async (e) => {
-    e.preventDefault();
-    try {
-      const { data } = await axios.post("/api/address/add", {
-        address,
-        userId: user._id,
-      });
+  e.preventDefault(); 
 
-      if (data.success) {
-        toast.success(data.message);
+  if (!user) {
+    toast.error("Please Login First");
+    setIsLogin(false);
+    return;
+  }
+  try {
+    const { data } = await axios.post("/api/address/add", {
+      address,
+      userId: user._id,
+    });
 
-        // ✅ Call parent callback to close the form
-        if (onSuccess) onSuccess();
+    if (data.success) {
+      toast.success(data.message);
+      if (onSuccess) onSuccess();
 
-        // Redirect logic
-        if (urlLocater.pathname === "/profile") {
-          navigate("/profile");
-        } else {
-          navigate("/cart");
-        }
-      } else {
-        toast.error(data.message);
-      }
-    } catch (error) {
-      toast.error(error.message);
+      navigate(urlLocater.pathname === "/profile" ? "/profile" : "/cart");
+    } else {
+      toast.error(data.message || "Something went wrong");
     }
-  };
+  } catch (error) {
+    toast.error(error.response?.data?.message || error.message);
+  }
+};
+
 
   return (
     <div className="mt-8 pb-8">
