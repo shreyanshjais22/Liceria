@@ -5,7 +5,7 @@ import BestSeller from '../components/BestSeller';
 import Bottombanner from '../components/Bottombanner';
 import NewsBox from '../components/NewsBox';
 
-function Home( ) {
+const Home = () =>{
   const [isLoaded, setIsLoaded] = useState(false);
   const [visibleSections, setVisibleSections] = useState(new Set());
 
