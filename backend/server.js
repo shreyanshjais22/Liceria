@@ -25,7 +25,7 @@ app.use(cookieParser());
 
 app.post('/stripe', express.raw({type: 'application/json'}),stripeWebhooks);
 app.use(cors({
-    origin: 'https://liceria-git-main-shreyanshjazz-gmailcoms-projects.vercel.app',
+    origin: 'https://liceria-lyart.vercel.app',
     credentials: true,}
 ));
 
