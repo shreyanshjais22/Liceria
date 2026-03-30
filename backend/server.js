@@ -25,7 +25,7 @@ app.use(cookieParser());
 
 app.post('/stripe', express.raw({type: 'application/json'}),stripeWebhooks);
 app.use(cors({
-    origin: 'https://liceria-lyart.vercel.app',
+    origin: 'https://talk2learn-hvs7.vercel.app',
     credentials: true,}
 ));
 
